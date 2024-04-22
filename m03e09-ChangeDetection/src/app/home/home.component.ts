@@ -1,17 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   standalone: true,
   selector: 'app-home',
-  template: `
-    <p>{{ name }}</p>
-    <button (click)="changeName()">Change name</button>
-  `,
+  template: ` <p>{{ value }}</p> `,
 })
-export class HomeComponent {
-  name = 'Josh';
+export class HomeComponent implements OnInit {
+  value = 1;
 
-  changeName() {
-    this.name = 'Kathy';
+  ngOnInit() {
+    setInterval(() => this.value++, 1000);
   }
 }
